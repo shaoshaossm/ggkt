@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 @MapperScan("com.ssm.ggkt.vod.mapper")
 public class VodConfig {
     /**
-     * 分页插件
+     *  分页插件
      */
     @Bean
     public PaginationInterceptor paginationInterceptor() {
