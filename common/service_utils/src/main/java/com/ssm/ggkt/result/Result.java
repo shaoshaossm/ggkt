@@ -27,7 +27,7 @@ public class Result<T> {
         return result;
     }
 
-    // 失败方法
+    //  失败方法
     public static <T> Result<T> fail(T data) {
         Result<T> result = new Result<>();
         if (data != null){
