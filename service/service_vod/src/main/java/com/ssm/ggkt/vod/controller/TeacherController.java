@@ -33,6 +33,7 @@ import java.util.List;
 @Api(tags = "讲师管理接口")
 @RestController
 @RequestMapping(value = "/admin/vod/teacher")
+@CrossOrigin
 public class TeacherController {
 
     @Autowired
@@ -66,11 +67,11 @@ public class TeacherController {
 
     @ApiOperation("条件查询分页")
     @PostMapping("findQueryPage/{current}/{limit}")
-    public Result findQueryPage(@ApiParam(name = "page", value = "当前页码", required = true)
+    public Result findQueryPage(@ApiParam(name = "current", value = "当前页码", required = true)
                                 @PathVariable long current,
                                 @ApiParam(name = "limit", value = "每页记录数", required = true)
                                 @PathVariable long limit,
-                                @ApiParam(name = "teacherVo", value = "查询对象", required = false)
+                                @ApiParam(name = "teacherQueryVo", value = "查询对象", required = false)
                                 @RequestBody(required = false) TeacherQueryVo teacherQueryVo) {
         Page<Teacher> pageParam = new Page<>(current, limit);
         if (teacherQueryVo == null) {
@@ -94,8 +95,9 @@ public class TeacherController {
             if (!StringUtils.isEmpty(joinDateEnd)) {
                 wrapper.le("join_date", joinDateEnd);
             }
+            wrapper.orderByDesc("update_time");
             //调用方法分页查询
-            Page<Teacher> pageModel = teacherService.page(pageParam, null);
+            Page<Teacher> pageModel = teacherService.page(pageParam, wrapper);
             //返回
             return Result.ok(pageModel);
 
