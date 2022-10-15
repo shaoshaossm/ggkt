@@ -1,6 +1,6 @@
 package com.ssm.ggkt.model.vod;
 
-import com.ssm.ggkt.model.base.BaseEntity;
+
 import com.baomidou.mybatisplus.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
