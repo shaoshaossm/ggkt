@@ -2,17 +2,14 @@ package com.ssm.ggkt.vod.service.impl;
 
 import com.alibaba.excel.EasyExcel;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.fasterxml.jackson.databind.util.BeanUtil;
 import com.ssm.ggkt.exception.GgktException;
 import com.ssm.ggkt.model.vod.Subject;
 import com.ssm.ggkt.vo.vod.SubjectEeVo;
-import com.ssm.ggkt.vo.vod.SubjectVo;
 import com.ssm.ggkt.vod.listener.SubjectListener;
 import com.ssm.ggkt.vod.mapper.SubjectMapper;
 import com.ssm.ggkt.vod.service.SubjectService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.sun.deploy.net.URLEncoder;
-import org.apache.velocity.runtime.directive.Foreach;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

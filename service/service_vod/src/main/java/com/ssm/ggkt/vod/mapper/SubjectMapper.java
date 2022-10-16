@@ -2,6 +2,9 @@ package com.ssm.ggkt.vod.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.ssm.ggkt.model.vod.Subject;
+import org.mapstruct.Mapper;
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.stereotype.Repository;
 
 /**
  * <p>
@@ -11,6 +14,7 @@ import com.ssm.ggkt.model.vod.Subject;
  * @author ssm
  * @since 2022-10-15
  */
+@Repository
 public interface SubjectMapper extends BaseMapper<Subject> {
 
 }
