@@ -43,13 +43,13 @@ public class TeacherController {
     @GetMapping("findAll")
     public Result findAllTeacher() {
         List<Teacher> list = teacherService.list();
-        try {
-            int a = 10 / 0;
-        }catch (Exception e){
-            throw new GgktException(201,"执行自定义异常处理");
-        }
+//        try {
+//            int a = 10 / 0;
+//        }catch (Exception e){
+//            throw new GgktException(201,"执行自定义异常处理");
+//        }
 
-        return Result.ok(list).message("查询成功").code(200);
+        return Result.ok(list).message("查询成功").code(20000);
     }
 
     @ApiOperation("删除讲师")
