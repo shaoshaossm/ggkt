@@ -22,7 +22,7 @@ import java.util.List;
  * @author ssm
  * @since 2022-10-15
  */
-@Api(tags = "课程管理接口")
+@Api(tags = "课程分类管理接口")
 @RestController
 @RequestMapping("/admin/vod/subject")
 @CrossOrigin
