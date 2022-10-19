@@ -1,9 +1,12 @@
 package com.ssm.ggkt.vod.controller;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import com.ssm.ggkt.model.vod.Video;
+import com.ssm.ggkt.result.Result;
+import com.ssm.ggkt.vod.service.VideoService;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * <p>
@@ -14,8 +17,40 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2022-10-16
  */
 @RestController
-@RequestMapping("/vod/video")
+@RequestMapping("/admin/vod/video")
+@CrossOrigin
 public class VideoController {
+
+    @Autowired
+    private VideoService videoService;
+
+    @ApiOperation(value = "根据ID查询")
+    @GetMapping("get/{id}")
+    public Result get(@PathVariable Long id) {
+        Video video = videoService.getById(id);
+        return Result.ok(video);
+    }
+
+    @ApiOperation(value = "增加小节")
+    @PostMapping("save")
+    public Result save(@RequestBody Video video) {
+        videoService.save(video);
+        return Result.ok(null);
+    }
+
+    @ApiOperation(value = "修改小节")
+    @PutMapping("update")
+    public Result updateById(@RequestBody Video video) {
+        videoService.updateById(video);
+        return Result.ok(null);
+    }
+
+    @ApiOperation(value = "删除小节")
+    @DeleteMapping("remove/{id}")
+    public Result remove(@PathVariable Long id) {
+        videoService.removeById(id);
+        return Result.ok(null);
+    }
 
 }
 
