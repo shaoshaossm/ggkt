@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/admin/vod/Video")
-@CrossOrigin
+//@CrossOrigin
 public class VideoController {
 
     @Autowired

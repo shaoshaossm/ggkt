@@ -14,7 +14,7 @@ import java.util.HashMap;
 @Api(tags = "用户登录接口")
 @RestController
 @RequestMapping("/admin/vod/user")
-@CrossOrigin
+//@CrossOrigin
 public class UserLoginController {
     @PostMapping("login")
     public Result login() {
