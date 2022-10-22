@@ -57,10 +57,10 @@ public class ChapterController {
         return Result.ok(null);
     }
 
-    @ApiOperation("删除章节")
+    @ApiOperation("删除章节并删除小节和小节中的视频")
     @DeleteMapping("remove/{id}")
     public Result remove(@PathVariable Long id) {
-        chapterService.removeById(id);
+        chapterService.removeVideoByChapterId(id);
         return Result.ok(null);
     }
 }
