@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
  * @since 2022-10-16
  */
 @RestController
-@RequestMapping("/admin/vod/video")
+@RequestMapping("/admin/vod/Video")
 @CrossOrigin
 public class VideoController {
 
@@ -45,12 +45,14 @@ public class VideoController {
         return Result.ok(null);
     }
 
-    @ApiOperation(value = "删除小节")
+    @ApiOperation("删除小节并删除视频")
     @DeleteMapping("remove/{id}")
     public Result remove(@PathVariable Long id) {
-        videoService.removeById(id);
+        videoService.removeVideoById(id);
         return Result.ok(null);
     }
+
+
 
 }
 
