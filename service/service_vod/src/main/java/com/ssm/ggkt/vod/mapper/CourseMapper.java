@@ -2,6 +2,7 @@ package com.ssm.ggkt.vod.mapper;
 
 import com.ssm.ggkt.model.vod.Course;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.ssm.ggkt.vo.vod.CoursePublishVo;
 
 /**
  * <p>
@@ -13,4 +14,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface CourseMapper extends BaseMapper<Course> {
 
+    CoursePublishVo selectCoursePublishVoById(Long id);
 }
