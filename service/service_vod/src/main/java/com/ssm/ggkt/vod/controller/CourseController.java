@@ -5,8 +5,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ssm.ggkt.model.vod.Course;
 import com.ssm.ggkt.result.Result;
 import com.ssm.ggkt.vo.vod.CourseFormVo;
+import com.ssm.ggkt.vo.vod.CoursePublishVo;
 import com.ssm.ggkt.vo.vod.CourseQueryVo;
-import com.ssm.ggkt.vo.vod.CourseVo;
 import com.ssm.ggkt.vod.service.CourseService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -59,10 +59,29 @@ public class CourseController {
     @PostMapping("update")
     public Result update(@RequestBody CourseFormVo courseFormVo){
         courseService.updateCourseId(courseFormVo);
+        return Result.ok(courseFormVo.getId());
+    }
+
+    @ApiOperation("ID查询读取课程发布信息")
+    @GetMapping("getCoursePublishVo/{id}")
+    public Result getCoursePublishVo(@PathVariable Long id) {
+        CoursePublishVo coursePublishVo = courseService.getCoursePublishVo(id);
+        return Result.ok(coursePublishVo);
+    }
+
+    @ApiOperation("课程最终发布")
+    @PutMapping("publishCourse/{id}")
+    public Result publishCourse(@PathVariable Long id){
+        courseService.publishCourse(id);
         return Result.ok(null);
     }
 
-
+    @ApiOperation("删除课程")
+    @DeleteMapping("remove/{id}")
+    public Result remove(@PathVariable Long id){
+        courseService.removeCourseId(id);
+        return Result.ok(null);
+    }
 
 }
 
