@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 @MapperScan("com.ssm.ggkt.activity.mapper")
 public class ActivityConfig {
     /**
-     *  分页插件
+     * 分页插件
      */
     @Bean
     public PaginationInterceptor paginationInterceptor() {
